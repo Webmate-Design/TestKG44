@@ -820,15 +820,15 @@ width:100%;
                <h4 class="modal-title" id="myModalLabel">Cart</h4>
             </div>
 			
-			 <form method="post" action="email.php">
+			<form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLSfQ4ybeXvAx3gIokuVykfPb6qnEf2xtbEIJ7BvprI1j1tO4jw/formResponse?" target="hidden_iframe" onsubmit="submitted=true;">
             <div class="modal-body">
                <shopping-cart inline-template :items="cartItems">
                   <div>
                      <table class="table table-cart">
                         <tr v-for="(item, index) in items">
-                           <td>{{item.title}}</td>
+                           <td><textarea name="entry.1213764001" id="entry.1213764001" >{{item.title}}</textarea></td>
                            <td style="width:77px">QTY:
-                              <input v-model="item.qty" class="form-control input-qty" type="number">
+                        <!--itemp--> <input id="entry.2139466216" name="entry.2139466216" v-model="item.qty" class="form-control input-qty" type="number">
                            </td>
                            <td class="text-right">PHP {{item.price | formatCurrency}}</td>
                            <td>
@@ -840,7 +840,7 @@ width:100%;
                         </tr>
                         <tr v-show="items.length > 0">
                            <td colspan="2" class="text-right" style="text-align:center"><label for="pricing">Cart Total:</label></td>
-						   <td colspan="2" class="text-right pricet"><textarea class="pricetd" id="pricing" oninput="auto_grow(this)" readonly>PHP {{Total | formatCurrency}}</textarea></td>
+						   <!----pricing---><td colspan="2" class="text-right pricet"><textarea class="pricetd" name="entry.879923219	" id="entry.879923219" oninput="auto_grow(this)" readonly>PHP {{Total | formatCurrency}}</textarea></td>
                        
                         </tr>
                      </table>
@@ -882,13 +882,13 @@ width:100%;
 								<label for="how">Choose your preffered Payment Method </label>
 								
 								<div style="display:flex;flex-direction:row;height:20px;">
-								<input type="radio" id="method1" name="Payment Method" value="payment" onclick="show1();">
-							    <label for="method1" style="margin-left:5px;color:#808080;font-weight:300;">Cash On Delivery</label><br>
+								<input type="radio" id="entry.1773900995" name="entry.1773900995" value="payment" onclick="show1();">
+							    <label for="entry.1773900995" style="margin-left:5px;color:#808080;font-weight:300;">Cash On Delivery</label><br>
 							    </div>
 								
 							    <div style="display:flex;flex-direction:row;margin-bottom:5px;height:20px;">
-								<input type="radio" id="method2" name="Payment Method" value="payment" onclick="show2();">
-							    <label for="method2" style="margin-left:5px;color:#808080;font-weight:300;">Pay Online (Gcash)</label><br> 
+								<input type="radio" id="entry.1773900995" name="entry.1773900995" value="payment" onclick="show2();">
+							    <label for="entry.1773900995" style="margin-left:5px;color:#808080;font-weight:300;">Pay Online (Gcash)</label><br> 
 								</div>
 								
 								
@@ -928,8 +928,8 @@ width:100%;
 								</div>
 								
 								<div style="display:flex;flex-direction:row;height:auto; justify-content:center;">
-								<input type="checkbox" id="done" name="Check if Done" value="Done">
-								<label for="done" style="margin-left:5px;font-weight:300;font-weight:bold;"> Done </label>
+								<input type="checkbox" id="entry.1465248259" name="entry.1465248259" value="Done">
+								<label for="entry.1465248259" style="margin-left:5px;font-weight:300;font-weight:bold;"> Done </label>
 								</div>
 								
 								
@@ -949,25 +949,16 @@ width:100%;
 							
 							  <div class="col-50">
 								<h3>Billing Address</h3>
-								<label for="fname"><i class="fa fa-user"></i> Full Name</label>
-								<input type="text" id="fname" name="firstname" placeholder="John M. Doe">
-								<label for="email"><i class="fa fa-envelope"></i> Email</label>
-								<input type="text" id="email" name="email" placeholder="john@example.com">
-								<label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-								<input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
-								<label for="city"><i class="fa fa-institution"></i> City</label>
-								<input type="text" id="city" name="city" placeholder="New York">
+								<label for="entry.1725064138"><i class="fa fa-user"></i> Full Name</label>
+								<input type="text" id="entry.1725064138" name="entry.1725064138" placeholder="John M. Doe">
+								<label for="entry.66165006"><i class="fa fa-envelope"></i> Email</label>
+								<input type="text" id="entry.66165006" name="entry.66165006" placeholder="john@example.com">
+								<label for="entry.861969806"><i class="fa fa-address-card-o"></i> Address</label>
+								<input type="text" id="entry.861969806" name="entry.861969806" placeholder="542 W. 15th Street">
+								<label for="entry.574853854"><i class="fa fa-institution"></i> City</label>
+								<input type="text" id="entry.574853854" name="entry.574853854" placeholder="Malaybalay" readonly>
 
-								<div class="row0">
-								  <div class="col-50">
-									<label for="state">State</label>
-									<input type="text" id="state" name="state" placeholder="NY">
-								  </div>
-								  <div class="col-50">
-									<label for="zip">Zip</label>
-									<input type="text" id="zip" name="zip" placeholder="10001">
-								  </div>
-								</div>
+								
 								
 								<label>
 								 <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
@@ -979,7 +970,15 @@ width:100%;
 							  
 							</div>
 							
-							<input type="submit" value="Continue to checkout" class="btn">
+							<input type="submit" value="Submit" class="btn">
+							<script src="assets/js/jquery.min.js"></script>
+							<script type="text/javascript">var submitted=false;</script>
+							<script type="text/javascript">
+							$('#gform').on('submit', function(e) {
+							  $('#gform *').fadeOut(2000);
+							  $('#gform').prepend('Your submission has been processed...');
+							  });
+							</script>
 						  
 						</div>
 					  </div>
@@ -1018,6 +1017,7 @@ width:100%;
 			   <button type="button" class="btna" data-dismiss="modal">Close</button>
             </div>
 			</form >
+			<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
          </div>
       </div>
    </div>
@@ -1030,6 +1030,43 @@ width:100%;
 	
 	
 
+	
+	
+	
+	
+	
+	
+	
+	
+<div>
+	
+	
+	<form name="gform" id="gform" enctype="text/plain" 
+	action="https://docs.google.com/forms/d/e/1FAIpQLSe7ZfoesssNvHTrFe6YYhHHYMdQ_WKwoHrTrJj_VQj8LoAOoQ/viewform?usp=pp_url&entry.1435765305=NJnas&entry.1036062926=NKds" target="hidden_iframe" onsubmit="submitted=true;">
+	  First name:<br>
+	  <input type="text" name="entry.1435765305" id="entry.1435765305"><br>
+	  Last name:<br>
+	  <input type="text" name="entry.1036062926" id="entry.1036062926">
+	  <input type="submit" value="Submit">
+	</form>
+
+	<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
+		
+	<script src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript">var submitted=false;</script>
+	<script type="text/javascript">
+	$('#gform').on('submit', function(e) {
+	  $('#gform *').fadeOut(2000);
+	  $('#gform').prepend('Your submission has been processed...');
+	  });
+	</script>
+</div>
+	
+	
+	
+	
+	
+	
 	
 	
 	
