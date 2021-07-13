@@ -1052,7 +1052,25 @@ margin-top:50px;
 	
 	
 	
+	<script>
+function doSomething () {
+  document.getElementById("myButton").disabled = true;
+  alert("I am an alert box!");
 
+  // Re-enable after processing if you want
+  // document.getElementById("myButton").disabled = false;
+}
+</script>
+ 
+<input type="button" id="myButton" value="Click Here To Do Something" onclick="doSomething()"/>
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
